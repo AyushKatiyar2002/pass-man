@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vishnuworld.passman.passman">
+    package="com.vishnuworld.passman">
    <application
         android:label="passman"
         android:icon="@mipmap/ic_launcher">

@@ -1,4 +1,4 @@
-package com.vishnuworld.passman.passman
+package com.vishnuworld.passman
 
 import io.flutter.embedding.android.FlutterActivity
 

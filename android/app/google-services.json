@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "198390579921",
+    "project_id": "pass-man-40b87",
+    "storage_bucket": "pass-man-40b87.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198390579921:android:754eab5d5ad0793895fbf0",
+        "android_client_info": {
+          "package_name": "com.vishnuworld.passman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198390579921-onnj61jnpsob0uhssiegbv462qff8lqr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vishnuworld.passman",
+            "certificate_hash": "9f9a501a359e572261229babc6ee4fa9fd73366e"
+          }
+        },
+        {
+          "client_id": "198390579921-cu4461j0nfqmbcspe6j83rdce3qn35jb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWya7I_UPuq3WYJUekpNsjtFy4-oE0Pfs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "198390579921-cu4461j0nfqmbcspe6j83rdce3qn35jb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

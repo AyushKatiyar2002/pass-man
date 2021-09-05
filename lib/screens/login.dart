@@ -13,7 +13,7 @@ class LoginScreen extends StatelessWidget {
     return FlutterLogin(
       onSignup: onSignUp,
       onLogin: onLogin,
-      title: 'CLASSROOM',
+      title: 'PASS-MAN',
       userType: LoginUserType.name,
       theme: LoginTheme(
         primaryColor: ColorsUtils.kPrimaryColor,

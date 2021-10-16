@@ -1,3 +1,6 @@
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:passman/screens/home.dart';
+
 import '../utils/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +16,8 @@ class LoginScreen extends StatelessWidget {
     return FlutterLogin(
       onSignup: onSignUp,
       onLogin: onLogin,
-      title: 'CLASSROOM',
-      userType: LoginUserType.name,
+      title: 'PASSMAN',
+      userType: LoginUserType.email,
       theme: LoginTheme(
         primaryColor: ColorsUtils.kPrimaryColor,
         pageColorDark: ColorsUtils.kBackgroundColor,
@@ -33,7 +36,9 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
       onRecoverPassword: resetPassword,
-      onSubmitAnimationCompleted: () {},
+      onSubmitAnimationCompleted: () {
+        Modular.to.pushReplacementNamed(HomeScreen.route);
+      },
     );
   }
 
@@ -55,6 +60,7 @@ class LoginScreen extends StatelessWidget {
   }
 
   Future<String?>? onLogin(LoginData data) async {
+    print("trying to log in");
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: data.name, password: data.password);
@@ -64,6 +70,7 @@ class LoginScreen extends StatelessWidget {
       } else if (e.code == 'wrong-password') {
         return 'Wrong password provided for that user.';
       }
+      throw e;
     }
   }
 

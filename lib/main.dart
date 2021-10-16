@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import './utils/utils.dart';
 
@@ -18,12 +17,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Pass-Man',
       theme: ThemeData(
         appBarTheme: AppBarTheme(
           backgroundColor: ColorsUtils.kBackgroundColor,
           elevation: 0.0,
-          titleTextStyle: GoogleFonts.montserrat(),
+          titleTextStyle: Globals.kHeading2Style,
           titleSpacing: 35,
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -42,9 +41,11 @@ class MyApp extends StatelessWidget {
         inputDecorationTheme: Globals.kInputDecorationTheme,
         scaffoldBackgroundColor: ColorsUtils.kBackgroundColor,
         brightness: Brightness.dark,
-        accentColor: ColorsUtils.kSecondaryColor,
         primarySwatch: ColorsUtils.kSecondaryColor,
         primaryColor: ColorsUtils.kPrimaryColor,
+        colorScheme: ColorScheme.dark(
+          secondary: ColorsUtils.kSecondaryColor,
+        ),
         primaryColorLight: ColorsUtils.kTextColor,
         backgroundColor: ColorsUtils.kBackgroundColor,
       ),

@@ -14,9 +14,10 @@ class _AuthStateState extends State<AuthState> {
 
   @override
   void initState() {
+    user = FirebaseAuth.instance.currentUser;
     // initDynamicLinks();
     FirebaseAuth.instance.userChanges().listen((event) {
-      if (user == event) return;
+      if (user == event || event != null) return;
       safeSetState(() => user = event);
     });
     super.initState();

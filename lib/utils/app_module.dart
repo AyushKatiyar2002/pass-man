@@ -5,5 +5,6 @@ class AppModule extends Module {
   @override
   List<ModularRoute> get routes => [
         ChildRoute('/', child: (_, __) => AuthState()),
+        ChildRoute(HomeScreen.route, child: (_, __) => HomeScreen()),
       ];
 }

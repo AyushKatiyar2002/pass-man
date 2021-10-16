@@ -1,6 +1,6 @@
-# passman
+# Pass-Man
 
-A new Flutter project.
+A Password Manager app. This app can be used to generate and store password securely in your local storage and sync to cloud (optional).
 
 ## Getting Started
 

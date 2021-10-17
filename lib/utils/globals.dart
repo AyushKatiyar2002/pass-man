@@ -14,6 +14,12 @@ extension GlobalValue on num {
   double get h => (Globals.rawScreenHeight * this) / 100;
 }
 
+enum SupportState {
+  unknown,
+  supported,
+  unsupported,
+}
+
 abstract class Globals {
   static double get rawScreenHeight =>
       window.physicalSize.height / window.devicePixelRatio;

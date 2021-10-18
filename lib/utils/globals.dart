@@ -21,6 +21,7 @@ enum SupportState {
 }
 
 abstract class Globals {
+  //Screen Resolution
   static double get rawScreenHeight =>
       window.physicalSize.height / window.devicePixelRatio;
 

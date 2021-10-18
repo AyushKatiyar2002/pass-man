@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:passman/utils/globals.dart';
-import '../screens/screens.dart';
+
+import 'lock_screen.dart'
+    if (dart.library.io) 'lock_screen_mobile.dart'
+    if (dart.library.html) 'lock_screen_web.dart';
 
 class HomeScreen extends StatelessWidget {
   static const route = "/home";
@@ -41,7 +44,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ),
-        LockScreen(),
+        lockScreen(),
       ],
     );
   }

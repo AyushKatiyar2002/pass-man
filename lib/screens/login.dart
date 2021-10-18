@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:passman/screens/home.dart';
+import 'package:passman/screens/authstate.dart';
 
 import '../utils/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -37,7 +37,7 @@ class LoginScreen extends StatelessWidget {
       ),
       onRecoverPassword: resetPassword,
       onSubmitAnimationCompleted: () {
-        Modular.to.pushReplacementNamed(HomeScreen.route);
+        Modular.to.pushReplacementNamed(AuthState.route);
       },
     );
   }

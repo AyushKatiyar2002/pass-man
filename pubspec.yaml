@@ -35,11 +35,18 @@ dependencies:
   flutter_modular: ^3.4.1+1
   flutter_riverpod: ^1.0.0-dev.7
   firebase_dynamic_links: ^2.0.9
+  local_auth: ^1.1.8
+  helpful_components: ^0.0.1
+  hive: ^2.0.4
+  hive_flutter: ^1.1.0
+  cryptography: ^2.0.2
+  crypto: ^3.0.1
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  hive_generator: ^1.1.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

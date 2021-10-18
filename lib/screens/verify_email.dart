@@ -1,4 +1,5 @@
-import '../templates/loading_screen.dart';
+import 'package:helpful_components/helpful_components.dart';
+
 import '../utils/globals.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

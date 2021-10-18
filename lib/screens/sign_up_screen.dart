@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:passman/components/components.dart';
+import 'package:helpful_components/helpful_components.dart';
 import 'package:passman/screens/home.dart';
 import 'package:passman/screens/login.dart';
 import 'package:passman/utils/globals.dart';

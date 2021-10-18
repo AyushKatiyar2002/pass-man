@@ -1,8 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:passman/utils/utils.dart';
 import '../screens/screens.dart';
 
 class AuthState extends StatefulWidget {
+  static const route = '/';
+
   const AuthState({Key? key}) : super(key: key);
 
   @override
@@ -15,9 +18,18 @@ class _AuthStateState extends State<AuthState> {
   @override
   void initState() {
     user = FirebaseAuth.instance.currentUser;
+
     // initDynamicLinks();
+
     FirebaseAuth.instance.userChanges().listen((event) {
-      if (user == event || event != null) return;
+      if (user == event) return;
+
+      //if user is logged in, re-issue token and no-need to change screen, as it
+      //will get changed after the animation.
+      if (event != null) {
+        Storage.reIssueToken();
+        return;
+      }
       safeSetState(() => user = event);
     });
     super.initState();

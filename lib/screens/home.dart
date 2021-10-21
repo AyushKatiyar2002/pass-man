@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:passman/screens/mpass.dart';
 import 'package:passman/utils/globals.dart';
 
 import 'lock_screen.dart'
@@ -24,6 +26,16 @@ class HomeScreen extends StatelessWidget {
                 onPressed: FirebaseAuth.instance.signOut,
               ),
             ],
+          ),
+          drawer: Drawer(
+            child: Column(
+              children: [
+                IconButton(
+                  onPressed: () => Modular.to.pushNamed(MPassword.route),
+                  icon: Icon(Icons.vpn_key),
+                ),
+              ],
+            ),
           ),
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),

@@ -32,8 +32,8 @@ class _LockScreenState extends State<LockScreen> {
     super.initState();
     auth.isDeviceSupported().then(
           (isSupported) => setState(() => _supportState =
-      isSupported ? SupportState.supported : SupportState.unsupported),
-    );
+              isSupported ? SupportState.supported : SupportState.unsupported),
+        );
 
     //Check if token is verified, if verified then no need to authenticate again and
     //re issue token.
@@ -52,7 +52,7 @@ class _LockScreenState extends State<LockScreen> {
       });
       authenticated = await auth.authenticate(
         localizedReason:
-        'Please authenticate the device to use the application!',
+            'Please authenticate the device to use the application!',
         useErrorDialogs: true,
         stickyAuth: true,
       );
@@ -68,9 +68,9 @@ class _LockScreenState extends State<LockScreen> {
           error: true,
           onPressed: () {
             WidgetsBinding.instance!.addPostFrameCallback((_) {
-              if (Storage.mPinExists()) {
+              if (Storage.mPassExists()) {
                 setState(() {
-                  _body = _mPin;
+                  _body = _mPass;
                 });
                 return;
               }
@@ -86,65 +86,64 @@ class _LockScreenState extends State<LockScreen> {
 
     if (authenticated) Storage.reIssueToken();
     setState(
-            () => _authorized = authenticated ? __authorized : __notAuthorized);
+        () => _authorized = authenticated ? __authorized : __notAuthorized);
   }
 
-  Widget get _mPin => Form(
-    key: _formKey,
-    child: TextFormField(
-      style: Globals.kBodyText1Style,
-      keyboardType: TextInputType.number,
-      onFieldSubmitted: (text) {
-        if (!(_formKey.currentState?.validate() ?? false)) return;
-        showDialog(
-          context: context,
-          builder: (_) => FutureDialog<bool>(
-            future: Storage.verifyMPin(text),
-            hasData: (data) {
-              if (data ?? false)
-                return CommonAlertDialog(
-                  'Successfully Verified mPin',
-                  onPressed: () {
-                    WidgetsBinding.instance!.addPostFrameCallback((_) {
-                      setState(() {
-                        _authorized = __authorized;
+  Widget get _mPass => Form(
+        key: _formKey,
+        child: TextFormField(
+          style: Globals.kBodyText1Style,
+          onFieldSubmitted: (text) {
+            if (!(_formKey.currentState?.validate() ?? false)) return;
+            showDialog(
+              context: context,
+              builder: (_) => FutureDialog<bool>(
+                future: Storage.verifyMPass(text),
+                hasData: (data) {
+                  if (data ?? false)
+                    return CommonAlertDialog(
+                      'Successfully Verified mPass',
+                      onPressed: () {
+                        WidgetsBinding.instance!.addPostFrameCallback((_) {
+                          setState(() {
+                            _authorized = __authorized;
+                          });
+                        });
+                        Navigator.pop(context);
+                      },
+                    );
+                  return CommonAlertDialog(
+                    'Incorrect mPass',
+                    onPressed: () {
+                      WidgetsBinding.instance!.addPostFrameCallback((_) {
+                        setState(() {
+                          _authorized = __notAuthorized;
+                        });
                       });
-                    });
-                    Navigator.pop(context);
-                  },
-                );
-              return CommonAlertDialog(
-                'Incorrect mPin',
-                onPressed: () {
-                  WidgetsBinding.instance!.addPostFrameCallback((_) {
-                    setState(() {
-                      _authorized = __notAuthorized;
-                    });
-                  });
-                  Navigator.pop(context);
+                      Navigator.pop(context);
+                    },
+                  );
                 },
-              );
-            },
-          ),
-        );
-      },
-    ),
-  );
+              ),
+            );
+          },
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
     return (_supportState != SupportState.supported) ||
-        (_authorized == __authorized) ||
-        (kIsWeb)
+            (_authorized == __authorized) ||
+            (kIsWeb)
         ? Container()
         : GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
-        child: Center(
-          child: _body,
-        ),
-      ),
-    );
+            behavior: HitTestBehavior.opaque,
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
+              child: Center(
+                child: _body,
+              ),
+            ),
+          );
   }
 }

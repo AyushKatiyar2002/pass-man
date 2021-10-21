@@ -32,7 +32,7 @@ dependencies:
   firebase_auth: ^3.1.0
   firebase_core: ^1.6.0
   google_fonts: ^2.1.0
-  flutter_modular: ^3.4.1+1
+  flutter_modular: ^4.1.2
   flutter_riverpod: ^1.0.0-dev.7
   firebase_dynamic_links: ^2.0.9
   local_auth: ^1.1.8
@@ -44,6 +44,8 @@ dependencies:
 
 
 dev_dependencies:
+  flutter_web_plugins:
+    sdk: flutter
   flutter_test:
     sdk: flutter
   hive_generator: ^1.1.1

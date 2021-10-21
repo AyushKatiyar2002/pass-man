@@ -37,7 +37,7 @@ class LoginScreen extends StatelessWidget {
       ),
       onRecoverPassword: resetPassword,
       onSubmitAnimationCompleted: () {
-        Modular.to.pushReplacementNamed(AuthState.route);
+        Modular.to.pushNamed(AuthState.route);
       },
     );
   }

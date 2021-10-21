@@ -19,6 +19,7 @@ class _LockScreenWebState extends State<LockScreenWeb> {
   @override
   void initState() {
     if (Storage.isTokenValid()) _authorized = true;
+    if (!Storage.mPassExists()) _authorized = true;
     super.initState();
   }
 

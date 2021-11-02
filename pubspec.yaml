@@ -41,6 +41,8 @@ dependencies:
   hive_flutter: ^1.1.0
   cryptography: ^2.0.2
   crypto: ^3.0.1
+  flutter_speed_dial: ^4.4.0+2
+  flutter_password_strength: ^0.1.6
 
 
 dev_dependencies:

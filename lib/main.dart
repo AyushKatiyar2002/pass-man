@@ -61,6 +61,9 @@ class MyApp extends StatelessWidget {
         ),
         primaryColorLight: ColorsUtils.kTextColor,
         backgroundColor: ColorsUtils.kBackgroundColor,
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          extendedTextStyle: Globals.kBodyText3Style,
+        )
       ),
       initialRoute: '/',
     ).modular();

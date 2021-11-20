@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:passman/utils/storage.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:passman/screens/home.dart';
+import 'package:passman/utils/utils.dart';
 
 class MPassword extends StatefulWidget {
   static const route = '/m_password';
@@ -17,7 +19,7 @@ class _MPasswordState extends State<MPassword> {
       body: Center(
         child: Container(
           constraints: BoxConstraints(
-            maxWidth: 500,
+            maxWidth: Globals.webMaxWidth,
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -27,7 +29,7 @@ class _MPasswordState extends State<MPassword> {
                 decoration: InputDecoration(hintText: 'Set MPassword'),
                 onFieldSubmitted: (text) async {
                   try {
-                    await Storage.setMPass(text);
+                    await AuthStorage.setMPass(text);
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Column(
@@ -38,6 +40,7 @@ class _MPasswordState extends State<MPassword> {
                         ),
                       ),
                     );
+                    Modular.to.popAndPushNamed(HomeScreen.route);
                   } catch (err) {
                     print(err);
                   }

@@ -4,6 +4,7 @@ import 'package:passman/utils/utils.dart';
 
 class AddUpdateNote extends StatefulWidget {
   static const route = '/add-update-note';
+
   const AddUpdateNote({Key? key}) : super(key: key);
 
   @override
@@ -38,29 +39,32 @@ class _AddUpdateNoteState extends State<AddUpdateNote> {
         title: Text('Add/Update Note'),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: Globals.kScreenPadding,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              TextField(
-                controller: titleController,
-                decoration: InputDecoration(
-                  hintText: 'Title',
+        child: Center(
+          child: Container(
+            constraints: BoxConstraints(maxWidth: Globals.webMaxWidth),
+            padding: Globals.kScreenPadding,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                TextField(
+                  controller: titleController,
+                  decoration: InputDecoration(
+                    hintText: 'Title',
+                  ),
                 ),
-              ),
-              Globals.kSizedBox,
-              TextField(
-                controller: noteController,
-                decoration: InputDecoration(
-                  hintText: 'Write your note here...',
+                Globals.kSizedBox,
+                TextField(
+                  controller: noteController,
+                  decoration: InputDecoration(
+                    hintText: 'Write your note here...',
+                  ),
+                  textInputAction: TextInputAction.newline,
+                  minLines: 10,
+                  maxLines: 10,
                 ),
-                textInputAction: TextInputAction.newline,
-                minLines: 10,
-                maxLines: 10,
-              ),
-              Globals.kSizedBox,
-            ],
+                Globals.kSizedBox,
+              ],
+            ),
           ),
         ),
       ),

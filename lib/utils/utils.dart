@@ -2,4 +2,4 @@
 export 'app_module.dart';
 export 'colors.dart';
 export 'globals.dart';
-export 'storage.dart';
+export 'storage/storage.dart';

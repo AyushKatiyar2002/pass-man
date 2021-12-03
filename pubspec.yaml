@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -18,32 +18,37 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.14.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  flutter_login: ^2.2.1
+  flutter_login: ^3.0.0
   firebase_auth: ^3.1.0
   firebase_core: ^1.6.0
+  cloud_firestore: ^3.1.0
   google_fonts: ^2.1.0
-  flutter_modular: ^3.4.1+1
-  flutter_riverpod: ^1.0.0-dev.7
-  firebase_dynamic_links: ^2.0.9
+  flutter_modular: ^4.1.2
+  flutter_riverpod: 1.0.0-dev.10
+  riverpod: 1.0.0-dev.10
+  firebase_dynamic_links: ^3.0.1
   local_auth: ^1.1.8
-  helpful_components: ^0.0.1
+  helpful_components: ^0.0.2
   hive: ^2.0.4
   hive_flutter: ^1.1.0
-  cryptography: ^2.0.2
-  crypto: ^3.0.1
-
+  cryptography: ^2.0.4
+  flutter_speed_dial: ^4.4.0+2
+  flutter_password_strength: ^0.1.6
+  flutter_secure_storage: 5.0.0-beta.5
+  uuid: ^3.0.5
 
 dev_dependencies:
+  flutter_web_plugins:
+    sdk: flutter
   flutter_test:
     sdk: flutter
   hive_generator: ^1.1.1
@@ -53,7 +58,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

@@ -3,56 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:passman/my_app.dart';
 
 import './utils/utils.dart';
+import 'config_app.dart' if (dart.library.html) 'config_app_web.dart';
 
 void main() async {
+  print("started main function");
   WidgetsFlutterBinding.ensureInitialized();
+  await configureApp();
   await Firebase.initializeApp();
   await Hive.initFlutter();
-  await Hive.openBox(Storage.auth);
+  await Hive.openBox(AuthStorage.auth);
+  await Hive.openBox(Secrets.boxName);
+  await Hive.openBox(Deleted.boxName);
+  await Hive.openBox(Database.boxName);
   runApp(ProviderScope(child: ModularApp(module: AppModule(), child: MyApp())));
-}
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Pass-Man',
-      theme: ThemeData(
-        appBarTheme: AppBarTheme(
-          backgroundColor: ColorsUtils.kBackgroundColor,
-          elevation: 0.0,
-          titleTextStyle: Globals.kHeading2Style,
-          titleSpacing: 35,
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: Globals.kElevatedButtonStyle,
-        ),
-        textTheme: ThemeData.dark().textTheme.copyWith(
-              bodyText1: Globals.kBodyText1Style,
-              bodyText2: Globals.kBodyText2Style,
-            ),
-        cardTheme: CardTheme(
-          color: ColorsUtils.kElevationColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: Globals.kBorderRadius,
-          ),
-        ),
-        inputDecorationTheme: Globals.kInputDecorationTheme,
-        scaffoldBackgroundColor: ColorsUtils.kBackgroundColor,
-        brightness: Brightness.dark,
-        primarySwatch: ColorsUtils.kSecondaryColor,
-        primaryColor: ColorsUtils.kPrimaryColor,
-        colorScheme: ColorScheme.dark(
-          secondary: ColorsUtils.kSecondaryColor,
-        ),
-        primaryColorLight: ColorsUtils.kTextColor,
-        backgroundColor: ColorsUtils.kBackgroundColor,
-      ),
-      initialRoute: '/',
-    ).modular();
-  }
 }

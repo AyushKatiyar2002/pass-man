@@ -37,16 +37,17 @@ class LoginScreen extends StatelessWidget {
       ),
       onRecoverPassword: resetPassword,
       onSubmitAnimationCompleted: () {
-        Modular.to.pushReplacementNamed(AuthState.route);
+        Modular.to.pushNamed(AuthState.route);
       },
     );
   }
 
-  Future<String?>? onSignUp(LoginData data) async {
+  Future<String?>? onSignUp(SignupData data) async {
+    assert(data.name != null && data.password != null);
     print('Trying to sign in');
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: data.name, password: data.password);
+          email: data.name!, password: data.password!);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         return 'The password provided is too weak.';
